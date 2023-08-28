@@ -1,13 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './samples/node-api'
-import './index.scss'
+import React from 'react';
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+import { createRoot } from 'react-dom/client';
 
-postMessage({ payload: 'removeLoading' }, '*')
+import App from './App';
+// import './samples/node-api'; // Uncomment to test Node.js API
+import './index.scss';
+
+createRoot(document.getElementById('root') as HTMLElement).render(
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>
+);
+
+postMessage({ payload: 'removeLoading' }, '*');
