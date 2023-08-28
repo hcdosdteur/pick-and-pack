@@ -15,14 +15,25 @@ module.exports = {
 	extends: [
 		'eslint:recommended',
 		'plugin:react/recommended',
-		'plugin:@typescript-eslint/recommended',
 		'plugin:import/recommended',
 		'plugin:import/typescript',
+		'plugin:@typescript-eslint/recommended',
 	],
 	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'import', 'react', 'react-hooks'],
+	parserOptions: {
+		ecmaVersion: 'latest',
+		sourceType: 'module',
+		ecmaFeatures: {
+			jsx: true,
+			experimentalObjectRestSpread: true,
+		},
+		jsx: true,
+	},
+	plugins: ['@typescript-eslint', 'react', 'import', 'react-hooks'],
 	root: true,
 	rules: {
+		'react/jsx-uses-react': 'off',
+		'react/react-in-jsx-scope': 'off',
 		'import/order': [
 			'error',
 			{
@@ -63,7 +74,7 @@ module.exports = {
 		'import/resolver': {
 			typescript: {},
 			node: {
-				extensions: ['.ts', '.tsx'],
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
 			},
 		},
 	},

@@ -1,16 +1,17 @@
 import { useState } from 'react';
 
 import './App.scss';
+
 import logoElectron from '@/assets/icon/logo-electron.svg';
 import logoVite from '@/assets/icon/logo-vite.svg';
 
-function App() {
+const App = () => {
 	const [count, setCount] = useState(0);
 	return (
 		<div className="App">
 			<div className="logo-box">
-				<a href="https://github.com/electron-vite/electron-vite-react" target="_blank">
-					<img src={logoVite} className="logo vite" alt="Electron + Vite logo" />
+				<img src={logoVite} className="logo vite" alt="Electron + Vite logo" />
+				<a href="https://github.com/electron-vite/electron-vite-react" target="_blank" rel="noreferrer">
 					<img src={logoElectron} className="logo electron" alt="Electron + Vite logo" />
 				</a>
 			</div>
@@ -28,6 +29,6 @@ function App() {
 			</div>
 		</div>
 	);
-}
+};
 
 export default App;
