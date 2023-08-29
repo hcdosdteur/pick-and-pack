@@ -1,0 +1,71 @@
+.container {
+	position: relative;
+}
+
+.city {
+	position: relative;
+	width: 6rem;
+	height: 61rem;
+	background-color: #fff;
+	opacity: 0.25;
+	transition: all 0.5s;
+	background-image: url('../assets/images/test_img.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+
+	cursor: pointer;
+}
+.city:hover:not(.active) ~ .name {
+	opacity: 1;
+}
+
+.introduce {
+	position: absolute;
+	bottom: 0;
+	width: 90rem;
+	max-height: 20rem;
+	padding: 2.4rem;
+	background-color: #000;
+	transition: all 0.25s;
+
+	.title {
+		font-size: 3rem;
+		font-weight: 700;
+	}
+
+	.content {
+		width: 100%;
+		font-size: 2rem;
+		font-weight: 500;
+		margin-top: 1rem;
+		opacity: 0;
+	}
+}
+
+.name {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	writing-mode: vertical-lr;
+	text-orientation: upright;
+	letter-spacing: 2rem;
+	font-size: 3.5rem;
+	font-weight: 700;
+	color: #fff;
+	text-transform: uppercase;
+	transition: all 0.25s;
+	opacity: 0;
+	user-select: none;
+	pointer-events: none;
+}
+
+.active {
+	width: 90rem;
+	opacity: 1 !important;
+}
+
+.invisible {
+	display: none;
+}

@@ -32,8 +32,10 @@ module.exports = {
 	plugins: ['@typescript-eslint', 'react', 'import', 'react-hooks'],
 	root: true,
 	rules: {
+		'react/prop-types': 'off',
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
+		indent: 'off',
 		'import/order': [
 			'error',
 			{

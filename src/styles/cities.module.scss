@@ -1,0 +1,28 @@
+#root {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+
+	.content {
+		width: 104rem;
+		overflow-x: auto;
+
+		.cities {
+			position: relative;
+			display: flex;
+			width: fit-content;
+			gap: 1rem;
+			margin-bottom: 1rem;
+		}
+	}
+}
