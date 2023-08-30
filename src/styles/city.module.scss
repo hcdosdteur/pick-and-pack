@@ -29,9 +29,21 @@
 	background-color: #000;
 	transition: all 0.25s;
 
-	.title {
-		font-size: 3rem;
-		font-weight: 700;
+	.title_container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.title {
+			font-size: 3rem;
+			font-weight: 700;
+		}
+
+		.check {
+			margin: 0;
+			width: 2.4rem;
+			height: 2.4rem;
+		}
 	}
 
 	.content {
@@ -67,5 +79,5 @@
 }
 
 .invisible {
-	display: none;
+	visibility: hidden;
 }

@@ -25,7 +25,8 @@ export const Cities = () => {
 	}, []);
 
 	return (
-		<div className={style.wrapper}>
+		<div className="wrapper">
+			<div className="question">Is there a city in Germany you&apos;d like to visit?</div>
 			<div className={style.content} ref={contentRef}>
 				<div className={style.cities}>
 					{count.map((item, idx) => (

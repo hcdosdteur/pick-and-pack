@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import electron from 'vite-plugin-electron';
 import renderer from 'vite-plugin-electron-renderer';
+import svgr from 'vite-plugin-svgr';
 
 import pkg from './package.json';
 
@@ -25,6 +26,7 @@ export default defineConfig(({ command }) => {
 		},
 		plugins: [
 			react(),
+			svgr(),
 			electron([
 				{
 					// Main-Process entry file of the Electron App.
