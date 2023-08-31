@@ -1,6 +1,6 @@
-import type { ContinentType, CountryType } from '@/utils/types';
+import type { Continent, Countries, CountriesArray } from '@/utils/types';
 
-import { useEffect, useState } from 'react';
+import React, { RefObject, useEffect, useRef, useState } from 'react';
 
 import { getSelectedCountry } from '@/api/restCountryApi';
 import { Flag } from '@/components/flag';
@@ -8,29 +8,84 @@ import style from '@/styles/country.module.scss';
 
 export const Country = () => {
 	const [loading, setLoading] = useState<boolean>(true);
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [count, setCount] = useState<string[]>();
-	const [countries, setCountries] = useState<CountryType[][]>([[], [], []]);
+	const [countries, setCountries] = useState<CountriesArray[]>([[], [], []]);
 
-	const CountryApi = async (continent: ContinentType = 'Asia') => {
+	interface elementType {
+		[key: string]: RefObject<HTMLDivElement>;
+	}
+	const element: elementType = {
+		animatiedContainer0: useRef<HTMLDivElement>(null),
+		animatiedContainer1: useRef<HTMLDivElement>(null),
+		animatiedContainer2: useRef<HTMLDivElement>(null),
+	};
+
+	const CountryApi = async (continent: Continent = 'Asia') => {
 		setLoading(true);
+
 		try {
 			const data = await getSelectedCountry(continent);
-			console.log(data);
 			setCountries(data);
 		} catch (err) {
 			console.log(err);
 		}
+		for (let i = 0; i < 3; i++) {
+			const target = element[`animatiedContainer${i}`].current;
+			if (target) {
+				setTimeout(() => {
+					console.dir(target);
+					const scrollLeft = getCenter(target.scrollWidth);
+					target.scrollLeft = scrollLeft;
+					target.scrollTo({ left: scrollLeft });
+				}, 20);
+			} else console.log('no target');
+		}
+
 		setLoading(false);
 	};
 
 	const handleChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		const continent = e.target.value as ContinentType;
+		const continent = e.target.value as Continent;
 		CountryApi(continent);
+	};
+
+	const getCenter = (scrollWidth: number) => (scrollWidth - 60) / 2;
+	const getMidPointsLeft = (scrollWidth: number) => (scrollWidth + 30) / 3;
+	const getMidPointsRight = (scrollWidth: number) => ((scrollWidth + 30) / 3) * 2;
+
+	const scrollAnimation = () => {
+		const speed = 3;
+		setInterval(() => {
+			for (let i = 0; i < 3; i++) {
+				const target = element[`animatiedContainer${i}`].current;
+				if (target) {
+					if (i % 2 === 0) {
+						target.scrollTo({
+							left: target.scrollLeft + speed,
+						});
+					} else {
+						target.scrollTo({
+							left: target.scrollLeft - speed,
+						});
+					}
+				}
+			}
+		}, 30);
+	};
+
+	const onscroll = (e: React.UIEvent<HTMLDivElement>) => {
+		const target = e.currentTarget;
+		const scrollWidth = target.scrollWidth;
+		// console.log(`${target.id}: ${scrollWidth} | ${target.scrollLeft}`);
+
+		if (target.scrollLeft >= getMidPointsRight(scrollWidth))
+			target.scrollTo({ left: getMidPointsLeft(scrollWidth) + 2 });
+		else if (target.scrollLeft <= getMidPointsLeft(scrollWidth))
+			target.scrollTo({ left: getMidPointsRight(scrollWidth) - 2 });
 	};
 
 	useEffect(() => {
 		CountryApi();
+		scrollAnimation();
 	}, []);
 
 	return (
@@ -45,9 +100,15 @@ export const Country = () => {
 			</select>
 			<div className={style.flags}>
 				{countries.map((item, idx) => (
-					<div className={style.mvContainer} key={idx}>
-						{item.map((country: CountryType) => (
-							<Flag data={country} key={country.flag}></Flag>
+					<div
+						id={`${idx}`}
+						className={style.animatedContainer}
+						onScroll={onscroll}
+						ref={element[`animatiedContainer${idx}`]}
+						key={idx}
+					>
+						{item.map((country: Countries, idx) => (
+							<Flag data={country} key={idx} />
 						))}
 					</div>
 				))}

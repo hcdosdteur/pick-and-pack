@@ -1,8 +1,16 @@
-.flag {
-	height: 15rem;
+.flagContainer {
+	display: flex;
+	gap: 3rem;
 
-	img {
-		width: inherit;
-		height: inherit;
+	.flag {
+		height: 15rem;
+
+		img {
+			width: inherit;
+			height: inherit;
+		}
+	}
+	.flag:hover {
+		cursor: pointer;
 	}
 }

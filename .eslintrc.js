@@ -1,7 +1,7 @@
 module.exports = {
 	env: {
 		browser: true,
-		es2021: true,
+		es6: true,
 		node: true,
 	},
 	overrides: [
@@ -36,6 +36,7 @@ module.exports = {
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		indent: 'off',
+		'import/no-unresolved': 'off',
 		'import/order': [
 			'error',
 			{
@@ -69,7 +70,7 @@ module.exports = {
 		react: {
 			version: 'detect',
 		},
-		'import/ignore': ['react'],
+		'import/ignore': ['react', 'react-scroll'],
 		'import/parsers': {
 			'@typescript-eslint/parser': ['.ts', '.tsx'],
 		},

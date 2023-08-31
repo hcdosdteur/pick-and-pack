@@ -1,6 +1,6 @@
-export type ContinentType = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania';
+export type Continent = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania';
 
-export interface CountryType {
+export interface Country {
 	flag: string;
 	flags: {
 		svg: string;
@@ -11,3 +11,6 @@ export interface CountryType {
 		official: string;
 	};
 }
+
+export type Countries = Country[];
+export type CountriesArray = Countries[];
