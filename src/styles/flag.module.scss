@@ -4,13 +4,22 @@
 
 	.flag {
 		height: 15rem;
+		transition: all 0.2s ease-in-out;
 
 		img {
+			z-index: 100;
 			width: inherit;
 			height: inherit;
 		}
 	}
+
 	.flag:hover {
+		opacity: 1 !important;
+		transform: scale(1.05);
 		cursor: pointer;
 	}
+}
+
+.dark {
+	opacity: 0.5;
 }

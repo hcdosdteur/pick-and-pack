@@ -6,6 +6,7 @@ export interface Country {
 		svg: string;
 	};
 	cca2: string;
+	continents: Continent[];
 	name: {
 		common: string;
 		official: string;
