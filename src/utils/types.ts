@@ -1,4 +1,5 @@
 export type Continent = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania';
+export type NavigateState = 'prev' | 'next';
 
 export interface Country {
 	flag: string;

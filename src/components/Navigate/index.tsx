@@ -1,3 +1,10 @@
+import { Arrow } from './button';
+
 export const Navigation = () => {
-	return <></>;
+	return (
+		<>
+			<Arrow state={'next'} />
+			<Arrow state={'prev'} />
+		</>
+	);
 };

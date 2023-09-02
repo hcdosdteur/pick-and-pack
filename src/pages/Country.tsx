@@ -86,6 +86,7 @@ export const Country = () => {
 
 	useEffect(() => {
 		CountryApi();
+		window.localStorage.setItem('user', '{}');
 	}, []);
 
 	return (

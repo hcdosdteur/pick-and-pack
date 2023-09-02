@@ -2,7 +2,9 @@ import type { Countries, Country } from '@/utils/types';
 
 import { useNavigate } from 'react-router-dom';
 
-import style from '@/styles/flag.module.scss';
+import { useSetLocalStorage } from '@/hook';
+
+import style from './flag.module.scss';
 
 interface FlagProps {
 	data: Countries;
@@ -14,7 +16,8 @@ export const Flag: React.FC<FlagProps> = ({ data, num }) => {
 
 	const select = (e: React.MouseEvent<HTMLDivElement>) => {
 		const cca2 = e.currentTarget.id;
-		navigate('/city', { state: { country: cca2 } });
+		useSetLocalStorage('country', cca2);
+		navigate('/city');
 	};
 
 	return (

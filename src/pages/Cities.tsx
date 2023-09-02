@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { City } from '@/components/city';
+import { useSetLocalStorage } from '@/hook';
 import style from '@/styles/cities.module.scss';
 
 export const Cities = () => {
@@ -9,6 +10,11 @@ export const Cities = () => {
 	const [selectedCity, setSelectedCity] = useState<string[]>([]);
 	const contentRef = useRef<HTMLDivElement>(null);
 	const navigate = useNavigate();
+
+	const select = () => {
+		useSetLocalStorage('city', selectedCity);
+		navigate('/time');
+	};
 
 	const toggle = (item: string) => {
 		if (selectedCity.includes(item)) {
@@ -40,7 +46,7 @@ export const Cities = () => {
 					))}
 				</div>
 			</div>
-			<div onClick={() => navigate('/time')}>asdf</div>
+			<div onClick={select}>asdf</div>
 		</div>
 	);
 };
