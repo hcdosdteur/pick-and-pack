@@ -10,7 +10,7 @@ import style from '@/styles/country.module.scss';
 export const Country = () => {
 	const [loading, setLoading] = useState<boolean>(true);
 	const [countries, setCountries] = useState<CountriesArray[]>([[], [], []]);
-	const [countryId, setCountryId] = useState<string>('default');
+	const [countryId, setCountryId] = useState<string>('');
 
 	interface elementType {
 		[key: string]: RefObject<HTMLDivElement>;
@@ -64,7 +64,7 @@ export const Country = () => {
 			target.scrollTo({ left: getMidPointsRight(scrollWidth) - 2 });
 	};
 
-	const speed = 2;
+	const speed = 1;
 	const scroll = () => {
 		for (let i = 0; i < 3; i++) {
 			const target = element[`animatiedContainer${i}`].current;
@@ -82,7 +82,7 @@ export const Country = () => {
 		}
 	};
 
-	// useInterval(scroll, countryId === 'default' ? 30 : null);
+	useInterval(scroll, countryId === '' ? 10 : null);
 
 	useEffect(() => {
 		CountryApi();
@@ -102,12 +102,10 @@ export const Country = () => {
 				{countries.map((item, idx) => (
 					<div
 						id={`${idx}`}
-						className={`${style.animatedContainer} ${
-							countryId !== idx.toString() && countryId !== 'default' ? style.dark : ''
-						}`}
+						className={style.animatedContainer}
 						onScroll={onscroll}
 						onMouseOver={() => setCountryId(idx.toString())}
-						onMouseOut={() => setCountryId('default')}
+						onMouseOut={() => setCountryId('')}
 						ref={element[`animatiedContainer${idx}`]}
 						key={idx}
 					>

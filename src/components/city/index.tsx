@@ -16,20 +16,7 @@ export const City: React.FC<
 				style={css}
 				className={`${style.city} ${active ? style.active : ''}`}
 				onClick={props.onClick}
-				onDoubleClick={props.onDoubleClick}
-			>
-				<div className={active ? style.introduce : style.invisible}>
-					<div className={style.title_container}>
-						<div className={style.title}>Berlin</div>
-						<input className={style.check} type="checkbox" />
-					</div>
-					<div className={`${style.content} ${active ? style.active : ''}`}>
-						Berlin is the capital and largest city of Germany by both area and population. Its more than 3.85 million
-						inhabitants make it the European Union&apos;s most populous city, according to population within city
-						limits.
-					</div>
-				</div>
-			</div>
+			></div>
 			<div className={style.name} key={name}>
 				BERLIN
 			</div>

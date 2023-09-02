@@ -4,6 +4,7 @@
 
 	.flag {
 		height: 15rem;
+		opacity: 0.85;
 		transition: all 0.2s ease-in-out;
 
 		img {
@@ -14,12 +15,8 @@
 	}
 
 	.flag:hover {
-		opacity: 1 !important;
+		opacity: 1.5 !important;
 		transform: scale(1.05);
 		cursor: pointer;
 	}
-}
-
-.dark {
-	opacity: 0.5;
 }

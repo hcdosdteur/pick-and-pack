@@ -5,17 +5,15 @@
 	text-align: center;
 }
 
-.wrapper {
-	.content {
-		width: 104rem;
-		overflow-x: auto;
+.content {
+	width: 104rem;
+	overflow-x: auto;
 
-		.cities {
-			position: relative;
-			display: flex;
-			width: fit-content;
-			gap: 1rem;
-			margin-bottom: 1rem;
-		}
+	.cities {
+		position: relative;
+		display: flex;
+		// width: fit-content;
+		gap: 1rem;
+		margin-bottom: 1rem;
 	}
 }

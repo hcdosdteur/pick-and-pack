@@ -1,21 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { City } from '@/components/city';
 import style from '@/styles/cities.module.scss';
 
 export const Cities = () => {
 	const [count, setCount] = useState<string[]>([]);
-	const [selectedCity, setSelectedCity] = useState<string>('');
+	const [selectedCity, setSelectedCity] = useState<string[]>([]);
 	const contentRef = useRef<HTMLDivElement>(null);
+	const navigate = useNavigate();
 
-	const scrollLocation = (item: string, location: number) => {
-		setSelectedCity(item);
-		const result = (location - 1) * 70;
-		const smoothScroll = () => {
-			contentRef.current?.scrollTo({ left: result, behavior: 'smooth' });
-		};
-		if (selectedCity === '') setTimeout(smoothScroll, 500);
-		else smoothScroll();
+	const toggle = (item: string) => {
+		if (selectedCity.includes(item)) {
+			setSelectedCity((props) => props.filter((city) => city !== item));
+		} else {
+			setSelectedCity((props) => [...props, item]);
+		}
 	};
 
 	useEffect(() => {
@@ -33,14 +33,14 @@ export const Cities = () => {
 						<City
 							_id={idx}
 							name={item}
-							active={selectedCity === item}
-							onClick={() => scrollLocation(item, idx)}
-							onDoubleClick={() => setSelectedCity('')}
+							active={selectedCity.includes(item)}
+							onClick={() => toggle(item)}
 							key={idx}
 						/>
 					))}
 				</div>
 			</div>
+			<div onClick={() => navigate('/time')}>asdf</div>
 		</div>
 	);
 };
