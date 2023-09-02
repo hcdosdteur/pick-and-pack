@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './city.module.scss';
+import style from './index.module.scss';
 
 export const City: React.FC<
 	{

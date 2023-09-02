@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useSetLocalStorage } from '@/hook';
 
-import style from './flag.module.scss';
+import style from './index.module.scss';
 
 interface FlagProps {
 	data: Countries;

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { Navigator } from '@/components/Navigate';
 import { City } from '@/components/city';
 import { useSetLocalStorage } from '@/hook';
 import style from '@/styles/cities.module.scss';
@@ -12,6 +13,10 @@ export const Cities = () => {
 	const navigate = useNavigate();
 
 	const select = () => {
+		if (selectedCity.length === 0) {
+			alert('Please select at least one city');
+			return;
+		}
 		useSetLocalStorage('city', selectedCity);
 		navigate('/time');
 	};
@@ -46,7 +51,7 @@ export const Cities = () => {
 					))}
 				</div>
 			</div>
-			<div onClick={select}>asdf</div>
+			<Navigator prev={() => navigate('/')} next={select} />
 		</div>
 	);
 };

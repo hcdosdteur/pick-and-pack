@@ -3,20 +3,15 @@ import type { NavigateState } from '@/utils/types';
 import { ReactComponent as Next } from '@/assets/icon/arrow_next.svg';
 import { ReactComponent as Prev } from '@/assets/icon/arrow_prev.svg';
 
-interface ArrowProps {
+import style from './index.module.scss';
+
+type ArrowProps = {
 	state: NavigateState;
-}
+} & React.HTMLAttributes<HTMLDivElement>;
 
-const CSS = {
-	width: '10rem',
-	height: '10rem',
-	border: '1px dashed black',
-	borderRadius: '50%',
-};
-
-export const Arrow: React.FC<ArrowProps> = ({ state }) => {
+export const Arrow: React.FC<ArrowProps> = ({ state, ...props }) => {
 	return (
-		<div style={CSS}>
+		<div className={style.arrow} onClick={props.onClick}>
 			{state === 'next' && <Next></Next>}
 			{state === 'prev' && <Prev></Prev>}
 		</div>
