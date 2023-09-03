@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Navigator } from '@/components/Navigate';
 import { City } from '@/components/city';
-import { useSetLocalStorage } from '@/hook';
+import { Navigator } from '@/components/navigate';
+import { useGetLoacalStorage, useSetLocalStorage } from '@/hook';
 import style from '@/styles/cities.module.scss';
 
 export const Cities = () => {
@@ -33,6 +33,8 @@ export const Cities = () => {
 		for (let i = 1; i <= 20; i++) {
 			setCount((prev) => [...prev, `${i}`]);
 		}
+		console.log(useGetLoacalStorage('user', 'city'));
+		setSelectedCity(useGetLoacalStorage('user', 'city'));
 	}, []);
 
 	return (

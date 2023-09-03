@@ -17,3 +17,34 @@
 		cursor: pointer;
 	}
 }
+
+$speed: 0.8s;
+.next:hover {
+	animation: next $speed infinite;
+}
+.prev:hover {
+	animation: left $speed infinite;
+}
+
+@keyframes next {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(0.8rem);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+@keyframes left {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-0.8rem);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}

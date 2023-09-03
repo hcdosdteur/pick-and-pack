@@ -1,16 +1,20 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-// import style from '@/styles/time.module.scss';
-import { Navigator } from '@/components/Navigate';
+import { Navigator } from '@/components/navigate';
+import { YYMMDD } from '@/components/time';
+import style from '@/styles/time.module.scss';
 
 export const Time = () => {
 	const navigate = useNavigate();
 
 	return (
 		<div className="wrapper">
-			<div></div>
-			<Link to="/">div</Link>
-			<Navigator prev={() => navigate('/')} />
+			<div className="question">Please let me know the travel itinerary</div>
+			<div className={style.container}>
+				<YYMMDD />
+				<YYMMDD />
+			</div>
+			<Navigator prev={() => navigate('/city')} />
 		</div>
 	);
 };

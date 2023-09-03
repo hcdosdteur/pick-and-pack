@@ -11,7 +11,10 @@ type ArrowProps = {
 
 export const Arrow: React.FC<ArrowProps> = ({ state, ...props }) => {
 	return (
-		<div className={style.arrow} onClick={props.onClick}>
+		<div
+			className={[style.arrow, state === 'next' ? style.next : style.prev].join(' ')}
+			onClick={props.onClick}
+		>
 			{state === 'next' && <Next></Next>}
 			{state === 'prev' && <Prev></Prev>}
 		</div>

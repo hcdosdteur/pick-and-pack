@@ -1,0 +1,11 @@
+.container {
+	display: flex;
+	gap: 6rem;
+
+	.numberBox {
+		width: 20rem;
+		height: 20rem;
+		border-radius: 2rem;
+		background-color: #000;
+	}
+}
