@@ -3,9 +3,20 @@
 	gap: 6rem;
 
 	.numberBox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: 20rem;
 		height: 20rem;
 		border-radius: 2rem;
 		background-color: #000;
+
+		span {
+			font-size: 10rem;
+		}
 	}
+}
+
+input[id='date'] {
+	display: none;
 }

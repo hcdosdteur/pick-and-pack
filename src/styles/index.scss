@@ -1,3 +1,5 @@
+@import './color.scss';
+
 :root {
 	font-size: 10px;
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -5,8 +7,8 @@
 	font-weight: 400;
 
 	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #202020;
+	color: #fff;
+	background-color: $grade1;
 
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -29,12 +31,12 @@
 }
 
 *::-webkit-scrollbar-thumb {
-	background: #606060;
+	background: $grade3;
 	border-radius: 1rem;
 }
 
 *::-webkit-scrollbar-track {
-	background: #404040;
+	background: $grade2;
 	border-radius: 1rem;
 }
 
@@ -71,7 +73,7 @@ button {
 	transition: border-color 0.25s;
 }
 button:hover {
-	border-color: #646cff;
+	// border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
@@ -83,6 +85,10 @@ code {
 	padding: 0.2rem 0.4rem;
 	margin: 0 0.4rem;
 	border-radius: 0.4rem;
+}
+
+input {
+	outline: none;
 }
 
 .card {
@@ -98,10 +104,25 @@ code {
 	height: 100vh;
 }
 
+.wrapper.q1 {
+	background-color: $green1;
+}
+.wrapper.q2 {
+	background-color: $sky1;
+}
+.wrapper.q3 {
+	background-color: $blue1;
+}
+
 .question {
 	position: absolute;
 	top: 6rem;
 	left: 4.5rem;
+}
+
+.example {
+	margin-top: 2rem;
+	opacity: 0.5;
 }
 
 .loading {
@@ -114,20 +135,4 @@ code {
 	margin: 0 auto;
 	padding: 2rem;
 	text-align: center;
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
-	code {
-		background-color: #f9f9f9;
-	}
 }

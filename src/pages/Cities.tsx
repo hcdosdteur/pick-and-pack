@@ -34,7 +34,9 @@ export const Cities = () => {
 			setCount((prev) => [...prev, `${i}`]);
 		}
 		console.log(useGetLoacalStorage('user', 'city'));
-		setSelectedCity(useGetLoacalStorage('user', 'city'));
+		if (useGetLoacalStorage('user', 'city')) {
+			setSelectedCity(useGetLoacalStorage('user', 'city'));
+		}
 	}, []);
 
 	return (

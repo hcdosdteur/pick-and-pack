@@ -33,6 +33,7 @@ module.exports = {
 	root: true,
 	rules: {
 		'react/prop-types': 'off',
+		'react/display-name': 'off',
 		'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		indent: 'off',
@@ -41,7 +42,16 @@ module.exports = {
 			'error',
 			{
 				'newlines-between': 'always',
-				groups: ['type', 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'unknown'],
+				groups: [
+					'type',
+					'builtin',
+					'external',
+					'internal',
+					'parent',
+					'sibling',
+					'index',
+					'unknown',
+				],
 				pathGroups: [
 					{
 						pattern: 'react*',

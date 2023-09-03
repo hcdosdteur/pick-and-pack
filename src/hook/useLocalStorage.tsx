@@ -1,5 +1,5 @@
 interface useSetProps {
-	(key: string, data: string | string[]): void;
+	(key: string, data: string | string[] | number): void;
 }
 interface useGetAllProps {
 	(key: string): object;

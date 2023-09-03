@@ -1,0 +1,29 @@
+@import './color.scss';
+
+.chat {
+	display: flex;
+	position: absolute;
+	bottom: 4.5rem;
+	width: 80rem;
+	height: 7rem;
+	padding: 1rem 3rem;
+	align-items: center;
+	border-radius: 2rem;
+	gap: 2rem;
+
+	input {
+		width: 100%;
+		background-color: transparent;
+		border: none;
+	}
+}
+
+.chat.p1 {
+	background-color: $green2;
+}
+.chat.p2 {
+	background-color: $sky2;
+}
+.chat.p3 {
+	background-color: $blue2;
+}
