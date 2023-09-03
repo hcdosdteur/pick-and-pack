@@ -17,7 +17,7 @@ export const Flag: React.FC<FlagProps> = ({ data, num }) => {
 	const select = (e: React.MouseEvent<HTMLDivElement>) => {
 		const cca2 = e.currentTarget.id;
 		useSetLocalStorage('country', cca2);
-		navigate('/city');
+		navigate('/time');
 	};
 
 	return (

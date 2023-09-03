@@ -1,0 +1,70 @@
+.waviy {
+	display: flex;
+	position: fixed;
+	user-select: none;
+
+	span {
+		position: relative;
+		display: inline-block;
+		color: #fff;
+		font-size: 4rem;
+		animation: filp 2s infinite;
+	}
+
+	.s1 {
+		animation-delay: 0;
+	}
+	.s2 {
+		animation-delay: 0.15s * 1;
+	}
+	.s3 {
+		animation-delay: 0.15s * 2;
+	}
+	.s4 {
+		animation-delay: 0.15s * 3;
+	}
+	.s5 {
+		margin-left: 1rem;
+		animation-delay: 0.15s * 4;
+	}
+	.s6 {
+		animation-delay: 0.15s * 5;
+	}
+	.s7 {
+		animation-delay: 0.15s * 6;
+	}
+	.s8 {
+		animation-delay: 0.15s * 7;
+	}
+	.s9 {
+		animation-delay: 0.15s * 8;
+	}
+	.s10 {
+		animation-delay: 0.15s * 9;
+	}
+	.s11 {
+		animation-delay: 0.15s * 10;
+	}
+	.s12 {
+		animation-delay: 0.15s * 11;
+	}
+	.s13 {
+		animation-delay: 0.15s * 12;
+	}
+	.s14 {
+		animation-delay: 0.15s * 13;
+	}
+	.s15 {
+		animation-delay: 0.15s * 14;
+	}
+	.s16 {
+		animation-delay: 0.15s * 15;
+	}
+}
+
+@keyframes filp {
+	0%,
+	80% {
+		transform: rotateY(360deg);
+	}
+}

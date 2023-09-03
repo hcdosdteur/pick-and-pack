@@ -116,7 +116,7 @@ export const Country = () => {
 					</div>
 				))}
 			</div>
-			<div className="loading">{loading ? 'loading' : 'success'}</div>
+			{loading && <div className="loading">loading</div>}
 		</div>
 	);
 };
