@@ -104,6 +104,15 @@ input {
 	height: 100vh;
 }
 
+.wrapper.a {
+	position: relative;
+	display: flex;
+	align-items: normal;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+}
+
 .wrapper.q1 {
 	background-color: $green1;
 }

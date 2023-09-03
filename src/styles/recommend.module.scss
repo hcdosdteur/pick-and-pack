@@ -1,9 +1,25 @@
 .day {
-	position: sticky;
+	position: absolute;
 	top: 6rem;
 	right: 4.5rem;
 	width: 15rem;
-	height: 15rem;
+	height: 7rem;
 	border-radius: 2rem;
 	background-color: #000;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	font-size: 2.5rem;
+}
+
+.title {
+	font-size: 3.5rem;
+}
+
+.place {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
 }

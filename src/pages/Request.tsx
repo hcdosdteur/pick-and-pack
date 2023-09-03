@@ -1,13 +1,46 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import axios from 'axios';
+
+import { useGetAllLoacalStorage, useSetLocalStorage } from '@/hook';
 import style from '@/styles/request.module.scss';
+
+interface TravelInfo {
+	country: string;
+	region: string[];
+	hobby: string[];
+	essential: string[];
+	food: string[];
+}
 
 export const Request = () => {
 	const navigate = useNavigate();
+
+	const api = async (data: TravelInfo) => {
+		try {
+			const response = await axios.post('http://localhost:3000/ai', data);
+			console.log(response);
+			useSetLocalStorage('final', response.data);
+			navigate('/recommend');
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	useEffect(() => {
-		navigate('/recommend');
+		const user = useGetAllLoacalStorage('user');
+		console.log(user);
+		const res = {
+			country: user.country,
+			region: user.region,
+			hobby: user.style,
+			essential: user.essential,
+			food: ['takoyaki', 'sushi', 'ramen'],
+		};
+		api(res);
 	}, []);
+
 	return (
 		<div className="wrapper">
 			<div className={style.waviy}>

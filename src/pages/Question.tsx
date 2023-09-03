@@ -19,21 +19,22 @@ export const Question: React.FC<{ id: number }> = ({ id }) => {
 };
 
 const Question1 = () => {
-	const [answer, setAnswer] = useState<string>('');
+	const [answer, setAnswer] = useState<string[]>([]);
 	const navigate = useNavigate();
 
 	const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setAnswer(e.target.value);
+		const rep = e.target.value.split(',').map((v) => v.trim());
+		setAnswer(rep);
 	};
 
 	const select = () => {
-		if (answer === '' || undefined) {
+		if (answer === [] || undefined) {
 			alert("We can't find your answer T.T\nIf you Don't have any, please type 'None'");
-			return;
+		} else {
+			console.log(answer);
+			useSetLocalStorage('style', answer);
+			navigate('/question/2');
 		}
-		console.log(answer);
-		useSetLocalStorage('style', answer);
-		navigate('/question/2');
 	};
 
 	return (
@@ -43,7 +44,9 @@ const Question1 = () => {
 				<div className="example">
 					(e.g., Hobbies, Favorite foods, Budget,
 					<br />
-					Active travel vs. Laid-back travel, Number of companions)
+					Active travel vs. Laid-back travel, Number of companions...
+					<br />
+					Please separate the places you want to go with &quot;,&quot;.)
 				</div>
 			</div>
 			<div className={[style.chat, style.p1].join(' ')}>
@@ -54,25 +57,22 @@ const Question1 = () => {
 	);
 };
 const Question2 = () => {
-	const [answer, setAnswer] = useState<string>('');
+	const [answer, setAnswer] = useState<string[]>([]);
 	const navigate = useNavigate();
 
 	const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const rep = e.target.value
-			.split(',')
-			.map((v) => v.trim())
-			.join(',');
+		const rep = e.target.value.split(',').map((v) => v.trim());
 		setAnswer(rep);
 	};
 
 	const select = () => {
-		if (answer === '' || undefined) {
+		if (answer === [] || undefined) {
 			alert("We can't find your answer T.T\nIf you Don't have any, please type 'None'");
-			return;
+		} else {
+			console.log(answer);
+			useSetLocalStorage('region', answer);
+			navigate('/question/3');
 		}
-		console.log(answer);
-		useSetLocalStorage('region', answer);
-		navigate('/question/3');
 	};
 
 	return (
@@ -95,25 +95,22 @@ const Question2 = () => {
 	);
 };
 const Question3 = () => {
-	const [answer, setAnswer] = useState<string>('');
+	const [answer, setAnswer] = useState<string[]>([]);
 	const navigate = useNavigate();
 
 	const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const rep = e.target.value
-			.split(',')
-			.map((v) => v.trim())
-			.join(',');
+		const rep = e.target.value.split(',').map((v) => v.trim());
 		setAnswer(rep);
 	};
 
 	const select = () => {
-		if (answer === '' || undefined) {
+		if (answer === [] || undefined) {
 			alert("We can't find your answer T.T\nIf you Don't have any, please type 'None'");
-			return;
+		} else {
+			console.log(answer);
+			useSetLocalStorage('essential', answer);
+			navigate('/question/4');
 		}
-		console.log(answer);
-		useSetLocalStorage('essential', answer);
-		navigate('/question/4');
 	};
 
 	return (
@@ -136,21 +133,22 @@ const Question3 = () => {
 	);
 };
 const Question4 = () => {
-	const [answer, setAnswer] = useState<string>('');
+	const [answer, setAnswer] = useState<string[]>([]);
 	const navigate = useNavigate();
 
 	const onchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setAnswer(e.target.value);
+		const rep = e.target.value.split(',').map((v) => v.trim());
+		setAnswer(rep);
 	};
 
 	const select = () => {
-		if (answer === '' || undefined) {
+		if (answer === [] || undefined) {
 			alert("We can't find your answer T.T\nIf you Don't have any, please type 'None'");
-			return;
+		} else {
+			console.log(answer);
+			useSetLocalStorage('hate', answer);
+			navigate('/request');
 		}
-		console.log(answer);
-		useSetLocalStorage('hate', answer);
-		navigate('/request');
 	};
 
 	return (

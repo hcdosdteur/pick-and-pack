@@ -1,8 +1,10 @@
+import type { MyData } from '@/utils/types';
+
 interface useSetProps {
 	(key: string, data: string | string[] | number): void;
 }
 interface useGetAllProps {
-	(key: string): object;
+	(key: string): MyData;
 }
 interface useGetProps {
 	(key: string, obj_key: string): string[];
@@ -20,7 +22,7 @@ export const useSetLocalStorage: useSetProps = (key, data) => {
 export const useGetAllLoacalStorage: useGetAllProps = (key) => {
 	const str = window.localStorage.getItem(key);
 	if (!str) throw new Error('no user storage');
-	const obj: object = JSON.parse(str);
+	const obj: MyData = JSON.parse(str);
 	return obj;
 };
 

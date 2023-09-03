@@ -16,3 +16,14 @@ export interface Country {
 
 export type Countries = Country[];
 export type CountriesArray = Countries[];
+
+export type MyData = {
+	style: string[];
+	essential: string[];
+	region: string[];
+	country: string;
+	hate: string;
+	diff: number;
+	endTime: string;
+	startTime: string;
+};
